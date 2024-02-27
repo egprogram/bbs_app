@@ -15,7 +15,7 @@ post '/bbs' do
 
   content_type :json
   if bbs.save
-    { status: true }.to_json
+    { status: true, bbs_info: bbs.attributes }.to_json
   else
     { status: false }.to_json
   end

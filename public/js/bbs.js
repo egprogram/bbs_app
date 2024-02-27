@@ -8,7 +8,16 @@ $(function(){
       dataType: 'json',
       data: JSON.stringify({ message: mess })
     }).done(function(json){
-      console.log(json);
+      if(json.status){
+        var bbsInfo = json.bbs_info;
+	var bbsDom =
+          '<p>' + 
+            'ID: ' + bbsInfo.id + ', ' +
+	    'message: ' + bbsInfo.message + ', ' +
+	    'created_at: ' + bbsInfo.created_at +
+          '</p>';
+        $(".js-bbs-list").append(bbsDom);
+      }
     }).fail(function(){
     });
   });
