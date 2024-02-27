@@ -1,18 +1,22 @@
 require 'sinatra'
-require 'active_record'
-require 'mysql2'
+require './lib/model'
 
-ActiveRecord::Base.configurations = YAML.load_file('./config/database.yml')
-ActiveRecord::Base.establish_connection('development')
+get '/bbs' do
+  @bbs = BBS.all
 
-class BBS < ActiveRecord::Base
+  erb :'bbs/index'
 end
 
-get '/' do
-  # bbs top 
-  'Hello BBS!'
-end
+post '/bbs' do
+  req_params = JSON.parse(request.body.read.to_s)
+  message = req_params['message']
 
-post '/' do
-  # bbs add
+  bbs = BBS.new(message: message)
+
+  content_type :json
+  if bbs.save
+    { status: true }.to_json
+  else
+    { status: false }.to_json
+  end
 end
