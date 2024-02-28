@@ -1,6 +1,12 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    actionview (7.1.3.2)
+      activesupport (= 7.1.3.2)
+      builder (~> 3.1)
+      erubi (~> 1.11)
+      rails-dom-testing (~> 2.2)
+      rails-html-sanitizer (~> 1.6)
     activemodel (7.1.3.2)
       activesupport (= 7.1.3.2)
     activerecord (7.1.3.2)
@@ -19,12 +25,30 @@ GEM
       tzinfo (~> 2.0)
     base64 (0.2.0)
     bigdecimal (3.1.6)
+    builder (3.2.4)
     concurrent-ruby (1.2.3)
     connection_pool (2.4.1)
+    crass (1.0.6)
     drb (2.2.0)
       ruby2_keywords
+    erubi (1.12.0)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
+    kaminari (1.2.2)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.2.2)
+      kaminari-activerecord (= 1.2.2)
+      kaminari-core (= 1.2.2)
+    kaminari-actionview (1.2.2)
+      actionview
+      kaminari-core (= 1.2.2)
+    kaminari-activerecord (1.2.2)
+      activerecord
+      kaminari-core (= 1.2.2)
+    kaminari-core (1.2.2)
+    loofah (2.22.0)
+      crass (~> 1.0.2)
+      nokogiri (>= 1.12.0)
     minitest (5.22.2)
     multi_json (1.15.0)
     mustermann (3.0.0)
@@ -32,8 +56,11 @@ GEM
     mutex_m (0.2.0)
     mysql2 (0.5.6)
     nio4r (2.7.0)
+    nokogiri (1.16.2-aarch64-linux)
+      racc (~> 1.4)
     puma (6.4.2)
       nio4r (~> 2.0)
+    racc (1.7.3)
     rack (3.0.9.1)
     rack-protection (4.0.0)
       base64 (>= 0.1.0)
@@ -43,6 +70,13 @@ GEM
     rackup (2.1.0)
       rack (>= 3)
       webrick (~> 1.8)
+    rails-dom-testing (2.2.0)
+      activesupport (>= 5.0.0)
+      minitest
+      nokogiri (>= 1.6)
+    rails-html-sanitizer (1.6.0)
+      loofah (~> 2.21)
+      nokogiri (~> 1.14)
     ruby2_keywords (0.0.5)
     sinatra (4.0.0)
       mustermann (~> 3.0)
@@ -67,6 +101,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord
+  kaminari
   mysql2
   puma
   rackup

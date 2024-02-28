@@ -1,8 +1,10 @@
+<input class="js-bbs-mes" type="text">
+<button class="js-bbs-btn">投稿</button>
+
 <div class="js-bbs-list">
 <% @bbs.each do |b| %>
   <p><%= "ID: #{b.id}, message: #{b.message}, created_at: #{b.created_at}" %></p>
 <% end %>
 </div>
 
-<input class="js-bbs-mes" type="text">
-<button class="js-bbs-btn">投稿</button>
+<button class="js-bbs-more-btn">続きを見る</button>
